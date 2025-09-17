@@ -44,11 +44,25 @@
       height: auto;
       border-radius: 12px;
       animation: float 4s ease-in-out infinite;
+      cursor: pointer;
     }
 
     @keyframes float {
       0%, 100% { transform: translateY(0px); }
       50% { transform: translateY(-15px); }
+    }
+
+    /* Bounce animation (triggered on click) */
+    @keyframes bounce {
+      0%   { transform: translateY(0); }
+      25%  { transform: translateY(-60px); }
+      50%  { transform: translateY(0); }
+      75%  { transform: translateY(-30px); }
+      100% { transform: translateY(0); }
+    }
+
+    .bounce {
+      animation: bounce 1s ease;
     }
 
     .back-link {
@@ -80,4 +94,33 @@
     </p>
     <p>
       Whether it’s cats, forests, or the beauty of friendship, Ghibli reflects a lot of who she is: empathetic,
-      imaginative, and full of heart. This page is dedicated to her love for G
+      imaginative, and full of heart. This page is dedicated to her love for Ghibli and the joy it brings.
+    </p>
+  </div>
+
+  <div class="characters">
+    <img src="img/totoro.png" alt="Totoro" id="totoro">
+    <img src="img/catbus.png" alt="Catbus">
+    <img src="img/noface.png" alt="No Face">
+    <img src="img/kiki.png" alt="Kiki">
+    <img src="img/calcifer.png" alt="Calcifer">
+  </div>
+
+  <a href="index.html" class="back-link">⬅ Back Home</a>
+
+  <script>
+    // Get Totoro image
+    const totoro = document.getElementById("totoro");
+
+    // Add bounce effect when clicked
+    totoro.addEventListener("click", () => {
+      totoro.classList.add("bounce");
+
+      // Remove class after animation ends so it can trigger again
+      totoro.addEventListener("animationend", () => {
+        totoro.classList.remove("bounce");
+      }, { once: true });
+    });
+  </script>
+</body>
+</html>
