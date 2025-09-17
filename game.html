@@ -8,9 +8,55 @@
       margin: 0;
       font-family: Arial, sans-serif;
       background: linear-gradient(to top, #ffe4e1, #fffacd);
+      text-align: center;
       overflow: hidden;
       height: 100vh;
-      text-align: center;
+    }
+
+    header {
+      background: #fff;
+      padding: 10px 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 10;
+    }
+
+    .header-banner img {
+      width: 350px;
+      height: auto;
+    }
+
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #333;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    #playBtn {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      background: #ff69b4;
+      color: white;
+      cursor: pointer;
+    }
+
+    #playBtn:hover {
+      background: #ff1493;
+    }
+
+    /* Game area */
+    #gameArea {
+      position: relative;
+      height: calc(100vh - 200px); /* subtract header space */
+      overflow: hidden;
     }
 
     h1 {
@@ -28,8 +74,7 @@
       position: absolute;
       width: 70px;
       height: 90px;
-      background: red;
-      border-radius: 50% 50% 50% 50%;
+      border-radius: 50%;
       cursor: pointer;
       display: flex;
       justify-content: center;
@@ -50,100 +95,33 @@
       font-weight: bold;
       margin-top: 20px;
     }
-
-        .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    h2 {
-      color: #d63384;
-    }
-
-    form {
-      margin: 20px 0;
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-      text-align: left;
-    }
-
-    form label {
-      display: block;
-      margin: 10px 0 5px;
-      font-weight: bold;
-    }
-
-    form input, form textarea {
-      width: 100%;
-      padding: 10px;
-      border: 2px solid #ffb6c1;
-      border-radius: 8px;
-      margin-bottom: 15px;
-    }
-
-    form button {
-      background: #ff69b4;
-      border: none;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    form button:hover {
-      background: #ff1493;
-    }
-
-    .wish {
-      background: #fff;
-      border: 2px solid #ffb6c1;
-      border-radius: 12px;
-      padding: 15px;
-      margin: 15px 0;
-      text-align: left;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    .wish img {
-      max-width: 200px;
-      margin-top: 10px;
-      border-radius: 8px;
-      display: block;
-    }
   </style>
 </head>
 <body>
-<header class="header-banner"> 
+  <!-- HEADER -->
+  <header class="header-banner"> 
     <img src="img/headerhbdpute.png" alt="Happy Birthday Pute" class="header-image"> 
- 
-
-  <div class="container"> 
-    <!-- Play message button --> 
-    <button id="playBtn">▶️ Let's Sing Along</button> 
-    <h1>🎉 Hope you are surrounded by happiness! 🎉</h1> 
-
-    <!-- Hidden audio --> 
-    <audio id="voiceNote"> 
-      <source src="audio/hbdpute.mp4" type="audio/mpeg"> 
-      Your browser does not support the audio element. 
-    </audio> 
-
+    <div>
+      <button id="playBtn">▶️ Let's Sing Along</button>
+      <audio id="voiceNote"> 
+        <source src="audio/hbdpute.mp4" type="audio/mpeg"> 
+        Your browser does not support the audio element. 
+      </audio>
+    </div>
     <nav> 
-      <a href="index.html"> 🏠Home </a> 
+      <a href="index.html">🏠 Home</a> 
       <a href="profile.html">💌 A Love Letter for Pute</a> 
       <a href="wishes.html">📬 Send Wishes</a> 
       <a href="game.html">🎮 Play Game</a> 
-    </nav> 
+    </nav>
+  </header> 
+
+  <!-- GAME AREA -->
+  <div id="gameArea">
+    <h1>🎉 Pop the Birthday Balloons! 🎉</h1>
+    <div id="score">Score: 0</div>
+    <div id="message">🎂 Happy Birthday Pute! 🎁</div>
   </div>
- </header> 
-  
-  <h1>🎉 Pop the Birthday Balloons! 🎉</h1>
-  <div id="score">Score: 0</div>
-  <div id="message">🎂 Happy Birthday Pute! 🎁</div>
 
   <script>
     let score = 0;
@@ -179,7 +157,7 @@
         }
       });
 
-      document.body.appendChild(balloon);
+      document.getElementById("gameArea").appendChild(balloon);
     }
 
     function randomColor() {
@@ -189,6 +167,11 @@
 
     // Create balloons every 1 second
     setInterval(createBalloon, 1000);
+
+    // Play audio
+    document.getElementById("playBtn").addEventListener("click", () => {
+      document.getElementById("voiceNote").play();
+    });
   </script>
 </body>
 </html>
