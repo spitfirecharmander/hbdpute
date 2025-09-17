@@ -1,24 +1,24 @@
-// 🎉 Confetti (simplified version)
+// 🎊 Confetti
 const canvas = document.getElementById('confetti');
 if (canvas) {
   const ctx = canvas.getContext('2d');
-function resizeCanvas() {
-  const img = document.querySelector('.header-image');
-  if (img) {
-    canvas.width = img.clientWidth;
-    canvas.height = img.clientHeight;
+
+  function resizeCanvas() {
+    const header = document.querySelector('.header-banner');
+    if (header) {
+      canvas.width = header.clientWidth;
+      canvas.height = header.clientHeight;
+    }
   }
-}
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
 
-
-  const confetti = Array.from({ length: 150 }, () => ({
+  const confetti = Array.from({ length: 120 }, () => ({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
-    r: Math.random() * 6 + 2,
+    r: Math.random() * 5 + 2,
     dx: Math.random() - 0.5,
-    dy: Math.random() + 1
+    dy: Math.random() + 0.5
   }));
 
   function draw() {
@@ -37,7 +37,7 @@ window.addEventListener('resize', resizeCanvas);
   draw();
 }
 
-// 💌 Wishes logic
+// 💌 Wishes
 const wishForm = document.getElementById('wishForm');
 const wishInput = document.getElementById('wishInput');
 const wishList = document.getElementById('wishList');
