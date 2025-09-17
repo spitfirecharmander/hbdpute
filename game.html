@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Balloon Pop Game</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to top, #87ceeb, #f0f8ff);
+      overflow: hidden;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 20px;
+    }
+
+    #score {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .balloon {
+      position: absolute;
+      width: 60px;
+      height: 80px;
+      background: red;
+      border-radius: 50% 50% 50% 50%;
+      cursor: pointer;
+      animation: floatUp 6s linear infinite;
+    }
+
+    @keyframes floatUp {
+      from { bottom: -100px; }
+      to { bottom: 100vh; }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎈 Pop the Balloons! 🎈</h1>
+  <div id="score">Score: 0</div>
+  <script>
+    let score = 0;
+
+    function createBalloon() {
+      const balloon = document.createElement("div");
+      balloon.classList.add("balloon");
+
+      // Random left position
+      balloon.style.left = Math.random() * (window.innerWidth - 60) + "px";
+      balloon.style.backgroundColor = randomColor();
+
+      // Remove balloon if it goes up
+      balloon.addEventListener("animationend", () => {
+        balloon.remove();
+      });
+
+      // Pop the balloon
+      balloon.addEventListener("click", () => {
+        score++;
+        document.getElementById("score").innerText = "Score: " + score;
+        balloon.remove();
+      });
+
+      document.body.appendChild(balloon);
+    }
+
+    function randomColor() {
+      const colors = ["red", "blue", "green", "yellow", "purple", "pink", "orange"];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    // Create balloons every 1 second
+    setInterval(createBalloon, 1000);
+  </script>
+</body>
+</html>
