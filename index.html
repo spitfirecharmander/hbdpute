@@ -54,7 +54,14 @@
       <a href="game.html">🎮 Play Game</a>
     </nav>
   </div>
+<script>
+  const playBtn = document.getElementById("playBtn");
+  const voiceNote = document.getElementById("voiceNote");
 
+  playBtn.addEventListener("click", () => {
+    voiceNote.play();
+  });
+</script>
   <!-- Cursor Effects Library -->
   <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
   <script>
