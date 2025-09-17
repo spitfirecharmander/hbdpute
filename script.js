@@ -2,8 +2,16 @@
 const canvas = document.getElementById('confetti');
 if (canvas) {
   const ctx = canvas.getContext('2d');
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+function resizeCanvas() {
+  const img = document.querySelector('.header-image');
+  if (img) {
+    canvas.width = img.clientWidth;
+    canvas.height = img.clientHeight;
+  }
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
 
   const confetti = Array.from({ length: 150 }, () => ({
     x: Math.random() * canvas.width,
