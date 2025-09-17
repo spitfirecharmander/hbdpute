@@ -8,16 +8,17 @@
     .header-banner {
       text-align: center;
       margin-top: 20px;
+      margin-bottom: 10px; /* reduce space under banner */
     }
 
     .header-image {
-      width: 450px; /* slightly bigger header */
+      width: 400px;  /* bigger size */
       height: auto;
     }
 
     .container {
       text-align: center;
-      margin-top: 10px;
+      margin-top: 5px; /* reduce gap above heading */
     }
 
     nav a {
@@ -51,8 +52,8 @@
   <script>
     window.addEventListener("load", () => {
       new cursoreffects.fairyDustCursor({
-        colors: ["#ff69b4", "#ffd700", "#87cefa"], // pink, gold, sky blue
-        fairySymbol: "✦" // or ✨, ★, 🍃
+        colors: ["#ff69b4", "#ffd700", "#87cefa"],
+        fairySymbol: "✦"
       });
     });
   </script>
