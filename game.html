@@ -50,9 +50,97 @@
       font-weight: bold;
       margin-top: 20px;
     }
+
+        .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h2 {
+      color: #d63384;
+    }
+
+    form {
+      margin: 20px 0;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      text-align: left;
+    }
+
+    form label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #ffb6c1;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    form button {
+      background: #ff69b4;
+      border: none;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background: #ff1493;
+    }
+
+    .wish {
+      background: #fff;
+      border: 2px solid #ffb6c1;
+      border-radius: 12px;
+      padding: 15px;
+      margin: 15px 0;
+      text-align: left;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .wish img {
+      max-width: 200px;
+      margin-top: 10px;
+      border-radius: 8px;
+      display: block;
+    }
   </style>
 </head>
 <body>
+<header class="header-banner"> 
+    <img src="img/headerhbdpute.png" alt="Happy Birthday Pute" class="header-image"> 
+ 
+
+  <div class="container"> 
+    <!-- Play message button --> 
+    <button id="playBtn">▶️ Let's Sing Along</button> 
+    <h1>🎉 Hope you are surrounded by happiness! 🎉</h1> 
+
+    <!-- Hidden audio --> 
+    <audio id="voiceNote"> 
+      <source src="audio/hbdpute.mp4" type="audio/mpeg"> 
+      Your browser does not support the audio element. 
+    </audio> 
+
+    <nav> 
+      <a href="index.html"> 🏠Home </a> 
+      <a href="profile.html">💌 A Love Letter for Pute</a> 
+      <a href="wishes.html">📬 Send Wishes</a> 
+      <a href="game.html">🎮 Play Game</a> 
+    </nav> 
+  </div>
+ </header> 
+  
   <h1>🎉 Pop the Birthday Balloons! 🎉</h1>
   <div id="score">Score: 0</div>
   <div id="message">🎂 Happy Birthday Pute! 🎁</div>
