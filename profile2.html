@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>💌 A Love Letter for Pute</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .header-banner {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 10px; /* reduce space under banner */
+    }
+
+    .header-image {
+      width: 400px;  /* bigger size */
+      height: auto;
+    }
+
+    .container {
+      text-align: center;
+      margin-top: 5px; /* reduce gap above heading */
+    }
+
+    nav a {
+      margin: 0 15px;
+      font-size: 18px;
+      text-decoration: none;
+      color: #333;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header class="header-banner">
+    <img src="img/headerhbdpute.png" alt="Happy Birthday Pute" class="header-image">
+  </header>
+
+  <div class="container">
+      <!-- Play message button -->
+  <button id="playBtn">▶️ Let's Sing Along</button>
+   <h1>🎉 Hope you are surrounded by happiness! 🎉</h1>
+    
+
+  <!-- Hidden audio -->
+  <audio id="voiceNote">
+    <source src="audio/hbdpute.mp4" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+    <nav>
+      <a href="index.html"> 🏠Home </a>
+      <a href="profile.html">💌 A Love Letter for Pute</a>
+      <a href="wishes.html">📬 Send Wishes</a>
+      <a href="game.html">🎮 Play Game</a>
+    </nav>
+  </div>
+
+  Halo selamat pagiiiiiiiiiiii
+  
+<script>
+  const playBtn = document.getElementById("playBtn");
+  const voiceNote = document.getElementById("voiceNote");
+
+  playBtn.addEventListener("click", () => {
+    voiceNote.play();
+  });
+</script>
+  <!-- Cursor Effects Library -->
+  <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
+  <script>
+    window.addEventListener("load", () => {
+      new cursoreffects.fairyDustCursor({
+        colors: ["#ff69b4", "#ffd700", "#87cefa"],
+        fairySymbol: "✦"
+      });
+    });
+  </script>
+</body>
+</html>
