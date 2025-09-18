@@ -2,42 +2,86 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>📬Send Your Wish</title>
+  <title>📬 Send Your Wish</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="img/totorobg.png">
-  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Handlee&display=swap" rel="stylesheet">
+
+  <!-- Import VT323 font (for heading/nav) and Handlee for wishes -->
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Special+Elite&family=Handlee&display=swap" rel="stylesheet">
+
   <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #ffc7d4; /* same pink background */
+    }
+
     .header-banner {
       text-align: center;
       margin-top: 20px;
-      margin-bottom: 10px; 
+      margin-bottom: 10px;
     }
 
     .header-image {
-      width: 400px; 
+      width: 400px;
       height: auto;
     }
 
     .container {
       text-align: center;
-      margin-top: 5px; 
-      max-width: 800px;
+      margin-top: 10px;
+      padding: 0 20px;
+      max-width: 900px;
       margin-left: auto;
       margin-right: auto;
-      padding: 20px;
+    }
+
+    /* Standard VT323 style for h1 and nav */
+    h1 {
+      font-family: 'VT323', monospace;
+      font-size: 28px;
+      font-weight: bold;
+      color: #097437;
+      margin: 20px 0;
+    }
+
+    /* Keep your custom Play button */
+    #playYoutubeBtn {
+      font-family: 'VT323', monospace;
+      font-size: 20px;
+      padding: 10px 20px;
+      border: 2px solid #333;
+      background: #097437;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+      margin-bottom: 15px;
+    }
+
+    #playYoutubeBtn:hover {
+      background: #e0e0e0;
+      color: #333;
+    }
+
+    nav {
+      margin-top: 15px;
     }
 
     nav a {
       margin: 0 15px;
-      font-size: 18px;
+      font-size: 22px;
       text-decoration: none;
       color: #333;
+      font-family: 'VT323', monospace;
     }
 
     nav a:hover {
       text-decoration: underline;
     }
 
+    /* Wishes form and list */
     h2 {
       color: #d63384;
     }
@@ -130,14 +174,16 @@
   </style>
 </head>
 <body>
+  <!-- Standard header section -->
   <header class="header-banner">
     <img src="img/headerhbdpute.png" alt="Happy Birthday Pute" class="header-image">
   </header>
 
   <div class="container">
+    <!-- Keep this button and YouTube -->
     <button id="playYoutubeBtn">▶️ Press Play to Listen</button>
 
-    <h1>🎉 Hope you are surrounded by happiness! 🎉</h1>
+    <h1>🎉 Hope you are surrounded by love and happiness! 🎉</h1>
 
     <iframe id="youtubePlayer" width="0" height="0" frameborder="0"
       src="https://www.youtube.com/embed/8_X0XZsiZFU?list=RD8_X0XZsiZFU&enablejsapi=1"
@@ -146,10 +192,10 @@
     </iframe>
 
     <nav>
-      <a href="index.html"> 🏠Home </a>
-      <a href="profile.html">💌 A Love Letter for Pute</a>
-      <a href="wishes.html">📬 Send Wishes</a>
-      <a href="game.html">🎮 Play Game</a>
+      <a href="index.html"> 🏠 Home </a>
+      <a href="profile.html"> 💌 A Love Letter for Pute</a>
+      <a href="wishes.html"> 📬 Send Wishes</a>
+      <a href="game.html"> 🎮 Play Game</a>
     </nav>
   </div>
 
@@ -168,7 +214,7 @@
       <button type="submit">Send Wish</button>
     </form>
 
-    <h2>🫰🏻Wishes from Pute's Loved Ones🩷</h2>
+    <h2>🫰🏻 Wishes from Pute's Loved Ones 🩷</h2>
     <div id="wishList"></div>
 
     <a href="index.html" class="back-link">⬅ Back Home</a>
