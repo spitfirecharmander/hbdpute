@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <title>🎂 Birthday Balloon Pop 🎂</title>
   <link rel="icon" type="image/png" href="img/totorobg.png">
+
+  <!-- 🔹 Import VT323 font -->
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
@@ -28,11 +32,13 @@
       height: auto;
     }
 
+    /* 🔹 VT323 for navigation */
     nav a {
       margin: 0 10px;
       text-decoration: none;
-      font-size: 18px;
+      font-size: 22px;
       color: #333;
+      font-family: 'VT323', monospace;
     }
 
     nav a:hover {
@@ -41,19 +47,24 @@
 
     #gameArea {
       position: relative;
-      height: calc(100vh - 200px); 
+      height: calc(100vh - 200px);
       overflow: hidden;
     }
 
+    /* 🔹 VT323 for heading */
     h1 {
       margin: 20px;
       color: #ff1493;
+      font-family: 'VT323', monospace;
+      font-size: 36px;
     }
 
+    /* 🔹 VT323 for score */
     #score {
-      font-size: 22px;
+      font-size: 26px;
       margin-bottom: 10px;
       font-weight: bold;
+      font-family: 'VT323', monospace;
     }
 
     .balloon {
@@ -65,8 +76,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 24px;
+      font-size: 28px;
       animation: floatUp 6s linear forwards;
+      font-family: 'VT323', monospace; /* 🔹 Retro font for emojis */
     }
 
     @keyframes floatUp {
@@ -74,12 +86,14 @@
       to { bottom: 100vh; }
     }
 
+    /* 🔹 VT323 for final birthday message */
     #message {
       display: none;
-      font-size: 28px;
+      font-size: 32px;
       color: #ff4500;
       font-weight: bold;
       margin-top: 20px;
+      font-family: 'VT323', monospace;
     }
   </style>
 </head>
@@ -158,6 +172,7 @@
     setInterval(createBalloon, 1000);
   </script>
 
+  <!-- 🔹 Fairy dust cursor effect -->
   <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
   <script>
     window.addEventListener("load", () => {
