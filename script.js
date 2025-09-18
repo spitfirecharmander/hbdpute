@@ -1,4 +1,3 @@
-// 🎊 Confetti
 const canvas = document.getElementById('confetti');
 if (canvas) {
   const ctx = canvas.getContext('2d');
@@ -36,8 +35,6 @@ if (canvas) {
   }
   draw();
 }
-
-// 💌 Wishes
 const wishForm = document.getElementById('wishForm');
 const wishInput = document.getElementById('wishInput');
 const wishList = document.getElementById('wishList');
