@@ -4,8 +4,6 @@
   <meta charset="UTF-8">
   <title>🎂 Birthday Balloon Pop 🎂</title>
   <link rel="icon" type="image/png" href="img/totorobg.png">
-
-  <!-- 🔹 Import VT323 font -->
   <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 
   <style>
@@ -31,8 +29,6 @@
       width: 350px;
       height: auto;
     }
-
-    /* 🔹 VT323 for navigation */
     nav a {
       margin: 0 10px;
       text-decoration: none;
@@ -51,7 +47,6 @@
       overflow: hidden;
     }
 
-    /* 🔹 VT323 for heading */
     h1 {
       margin: 20px;
       color: #ff1493;
@@ -59,7 +54,6 @@
       font-size: 36px;
     }
 
-    /* 🔹 VT323 for score */
     #score {
       font-size: 26px;
       margin-bottom: 10px;
@@ -78,15 +72,13 @@
       align-items: center;
       font-size: 28px;
       animation: floatUp 6s linear forwards;
-      font-family: 'VT323', monospace; /* 🔹 Retro font for emojis */
+      font-family: 'VT323', monospace; 
     }
 
     @keyframes floatUp {
       from { bottom: -120px; }
       to { bottom: 100vh; }
     }
-
-    /* 🔹 VT323 for final birthday message */
     #message {
       display: none;
       font-size: 32px;
@@ -113,7 +105,6 @@
     <div id="message">🎂 Happy 27th Birthday, Pute! 🎁</div>
   </div>
 
-  <!-- 🔹 Sound effects -->
   <audio id="popSound" src="audio/pop.mp3" preload="auto"></audio>
   <audio id="cheerSound" src="audio/hbd.mp3" preload="auto"></audio>
 
@@ -123,35 +114,28 @@
     function createBalloon() {
       const balloon = document.createElement("div");
       balloon.classList.add("balloon");
-
-      // Random horizontal position
       balloon.style.left = Math.random() * (window.innerWidth - 80) + "px";
 
-      // Random emoji inside balloon
       const emojis = ["🎂", "🎁", "🎉", "🎊", "💖"];
       balloon.textContent = emojis[Math.floor(Math.random() * emojis.length)];
 
-      // Random background color
       balloon.style.backgroundColor = randomColor();
 
-      // Remove balloon after animation
       balloon.addEventListener("animationend", () => {
         balloon.remove();
       });
 
-      // When balloon is clicked
       balloon.addEventListener("click", () => {
         score++;
         document.getElementById("score").innerText = "Score: " + score;
 
-        // 🔹 Play pop sound
         const popSound = document.getElementById("popSound");
         popSound.currentTime = 0; 
         popSound.play();
 
         balloon.remove();
 
-        // If score reaches 27 → show message + play celebration
+
         if (score === 27) {
           document.getElementById("message").style.display = "block";
           const cheerSound = document.getElementById("cheerSound");
@@ -162,17 +146,13 @@
 
       document.getElementById("gameArea").appendChild(balloon);
     }
-
     function randomColor() {
       const colors = ["#ff69b4", "#ff6347", "#ffa500", "#00bfff", "#32cd32", "#ba55d3"];
       return colors[Math.floor(Math.random() * colors.length)];
     }
-
-    // Create balloons continuously
     setInterval(createBalloon, 1000);
   </script>
 
-  <!-- 🔹 Fairy dust cursor effect -->
   <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
   <script>
     window.addEventListener("load", () => {
