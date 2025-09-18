@@ -5,7 +5,7 @@
   <title>📬Send Your Wish</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="img/totorobg.png">
- <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Handlee&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Handlee&display=swap" rel="stylesheet">
   <style>
     .header-banner {
       text-align: center;
@@ -88,9 +88,9 @@
       text-align: left;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       font-size: 16px; 
-    font-family: 'Handlee', cursive, 'Special Elite', monospace, sans-serif;
-    line-height: 1.6; 
-    color: #2B308B; 
+      font-family: 'Handlee', cursive, 'Special Elite', monospace, sans-serif;
+      line-height: 1.6; 
+      color: #2B308B; 
     }
 
     .wish img {
@@ -99,15 +99,16 @@
       border-radius: 8px;
       display: block;
     }
-    .wish h3 {
-    font-size: 20px; 
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
 
-  .wish p {
-    margin: 0;
-  }
+    .wish h3 {
+      font-size: 20px; 
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .wish p {
+      margin: 0;
+    }
 
     .back-link {
       display: inline-block;
@@ -134,13 +135,17 @@
   </header>
 
   <div class="container">
-    <button id="playBtn">▶️ Let's Sing Along</button>
+    <!-- 🔹 Play YouTube Music Button -->
+    <button id="playYoutubeBtn">▶️ Let's Sing Along</button>
+
     <h1>🎉 Hope you are surrounded by happiness! 🎉</h1>
-    
-    <audio id="voiceNote">
-      <source src="audio/hbdpute.mp4" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
+
+    <!-- Hidden YouTube iframe -->
+    <iframe id="youtubePlayer" width="0" height="0" frameborder="0"
+      src="https://www.youtube.com/embed/8_X0XZsiZFU?list=RD8_X0XZsiZFU&enablejsapi=1"
+      allow="autoplay; encrypted-media" allowfullscreen
+      style="display:none;">
+    </iframe>
 
     <nav>
       <a href="index.html"> 🏠Home </a>
@@ -171,6 +176,7 @@
     <a href="index.html" class="back-link">⬅ Back Home</a>
   </div>
 
+  <!-- Firebase SDK -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
     import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-database.js";
@@ -189,10 +195,12 @@
     const wishesRef = ref(db, "wishes");
     const wishForm = document.getElementById("wishForm");
     const wishList = document.getElementById("wishList");
+
     onChildAdded(wishesRef, (snapshot) => {
       const wish = snapshot.val();
       displayWish(wish);
     });
+
     wishForm.addEventListener("submit", (event) => {
       event.preventDefault();
 
@@ -244,15 +252,19 @@
     }
   </script>
 
+  <!-- Script for YouTube Play Button -->
   <script>
-    const playBtn = document.getElementById("playBtn");
-    const voiceNote = document.getElementById("voiceNote");
+    const playBtn = document.getElementById("playYoutubeBtn");
+    const player = document.getElementById("youtubePlayer");
 
     playBtn.addEventListener("click", () => {
-      voiceNote.play();
+      player.contentWindow.postMessage(
+        '{"event":"command","func":"playVideo","args":""}', '*'
+      );
     });
   </script>
 
+  <!-- Cursor Effects -->
   <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
   <script>
     window.addEventListener("load", () => {
