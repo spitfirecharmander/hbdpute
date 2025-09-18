@@ -19,6 +19,10 @@
     .container {
       text-align: center;
       margin-top: 5px; /* reduce gap above heading */
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 20px;
     }
 
     nav a {
@@ -30,12 +34,6 @@
 
     nav a:hover {
       text-decoration: underline;
-    }
-
-        .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
     }
 
     h2 {
@@ -95,6 +93,7 @@
       border-radius: 8px;
       display: block;
     }
+
     .back-link {
       display: inline-block;
       margin: 30px 0;
@@ -120,16 +119,16 @@
   </header>
 
   <div class="container">
-      <!-- Play message button -->
-  <button id="playBtn">▶️ Let's Sing Along</button>
-   <h1>🎉 Hope you are surrounded by happiness! 🎉</h1>
-    
+    <!-- Play message button -->
+    <button id="playBtn">▶️ Let's Sing Along</button>
+    <h1>🎉 Hope you are surrounded by happiness! 🎉</h1>
 
-  <!-- Hidden audio -->
-  <audio id="voiceNote">
-    <source src="audio/hbdpute.mp4" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+    <!-- Hidden audio -->
+    <audio id="voiceNote">
+      <source src="audio/hbdpute.mp4" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
     <nav>
       <a href="index.html"> 🏠Home </a>
       <a href="profile.html">💌 A Love Letter for Pute</a>
@@ -137,7 +136,8 @@
       <a href="game.html">🎮 Play Game</a>
     </nav>
   </div>
-<div class="container">
+
+  <div class="container">
     <h2>📬 Send Your Wish 💌</h2>
     <form id="wishForm">
       <label for="nameInput">Your Name</label>
@@ -158,19 +158,40 @@
     <a href="index.html" class="back-link">⬅ Back Home</a>
   </div>
 
+  <!-- Firebase SDK -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+    import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-database.js";
 
-<script>
+    // 🔹 Firebase config from your project
+    const firebaseConfig = {
+      apiKey: "AIzaSyBaTYhDGKYBqwe1D1njnCuHfyCqb07NfS8",
+      authDomain: "hbdpute-43344.firebaseapp.com",
+      projectId: "hbdpute-43344",
+      storageBucket: "hbdpute-43344.firebasestorage.app",
+      messagingSenderId: "955364021140",
+      appId: "1:955364021140:web:7f8dddb9f3cca69c30f581",
+      measurementId: "G-79MLNVYTRX",
+      databaseURL: "https://hbdpute-43344-default-rtdb.firebaseio.com"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const wishesRef = ref(db, "wishes");
+
+    // DOM elements
     const wishForm = document.getElementById("wishForm");
     const wishList = document.getElementById("wishList");
 
-    // Load saved wishes from localStorage
-    window.addEventListener("load", () => {
-      const savedWishes = JSON.parse(localStorage.getItem("wishes")) || [];
-      savedWishes.forEach(wish => displayWish(wish));
+    // Load wishes from Firebase in real time
+    onChildAdded(wishesRef, (snapshot) => {
+      const wish = snapshot.val();
+      displayWish(wish);
     });
 
     // Handle form submission
-    wishForm.addEventListener("submit", function(event) {
+    wishForm.addEventListener("submit", (event) => {
       event.preventDefault();
 
       const name = document.getElementById("nameInput").value.trim();
@@ -181,29 +202,25 @@
 
       if (imageFile) {
         const reader = new FileReader();
-        reader.onload = function(e) {
+        reader.onload = (e) => {
           const newWish = { name, message, image: e.target.result };
           saveWish(newWish);
-          displayWish(newWish);
         };
         reader.readAsDataURL(imageFile);
       } else {
         const newWish = { name, message, image: null };
         saveWish(newWish);
-        displayWish(newWish);
       }
 
       wishForm.reset();
     });
 
-    // Save to localStorage
+    // Save wish to Firebase
     function saveWish(wish) {
-      const savedWishes = JSON.parse(localStorage.getItem("wishes")) || [];
-      savedWishes.push(wish);
-      localStorage.setItem("wishes", JSON.stringify(savedWishes));
+      push(wishesRef, wish);
     }
 
-    // Display a wish on the page
+    // Display wish on page
     function displayWish(wish) {
       const wishDiv = document.createElement("div");
       wishDiv.classList.add("wish");
@@ -223,19 +240,20 @@
         wishDiv.appendChild(img);
       }
 
-      wishList.appendChild(wishDiv);
+      // 🔹 Newest wishes on top
+      wishList.prepend(wishDiv);
     }
   </script>
 
+  <script>
+    const playBtn = document.getElementById("playBtn");
+    const voiceNote = document.getElementById("voiceNote");
 
-<script>
-  const playBtn = document.getElementById("playBtn");
-  const voiceNote = document.getElementById("voiceNote");
+    playBtn.addEventListener("click", () => {
+      voiceNote.play();
+    });
+  </script>
 
-  playBtn.addEventListener("click", () => {
-    voiceNote.play();
-  });
-</script>
   <!-- Cursor Effects Library -->
   <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
   <script>
