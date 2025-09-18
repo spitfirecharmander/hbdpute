@@ -54,10 +54,9 @@
       background: #ff1493;
     }
 
-    /* Game area */
     #gameArea {
       position: relative;
-      height: calc(100vh - 200px); /* subtract header space */
+      height: calc(100vh - 200px); 
       overflow: hidden;
     }
 
@@ -100,7 +99,6 @@
   </style>
 </head>
 <body>
-  <!-- HEADER -->
   <header class="header-banner"> 
     <nav> 
       <a href="index.html">🏠 Home</a> 
@@ -110,11 +108,10 @@
     </nav>
   </header> 
 
-  <!-- GAME AREA -->
   <div id="gameArea">
     <h1>🎉 Pop the Birthday Balloons! 🎉</h1>
     <div id="score">Score: 0</div>
-    <div id="message">🎂 Happy Birthday Pute! 🎁</div>
+    <div id="message">🎂 Happy 27th Birthday, Pute! 🎁</div>
   </div>
 
   <script>
@@ -124,29 +121,28 @@
       const balloon = document.createElement("div");
       balloon.classList.add("balloon");
 
-      // Random left position
+
       balloon.style.left = Math.random() * (window.innerWidth - 80) + "px";
 
-      // Random emoji inside balloon
+
       const emojis = ["🎂", "🎁", "🎉", "🎊", "💖"];
       balloon.textContent = emojis[Math.floor(Math.random() * emojis.length)];
 
-      // Random balloon color
+
       balloon.style.backgroundColor = randomColor();
 
-      // Remove balloon if it goes up
+ 
       balloon.addEventListener("animationend", () => {
         balloon.remove();
       });
 
-      // Pop the balloon
+
       balloon.addEventListener("click", () => {
         score++;
         document.getElementById("score").innerText = "Score: " + score;
         balloon.remove();
 
-        // Show birthday message after 10 pops
-        if (score === 10) {
+        if (score === 27) {
           document.getElementById("message").style.display = "block";
         }
       });
@@ -159,10 +155,7 @@
       return colors[Math.floor(Math.random() * colors.length)];
     }
 
-    // Create balloons every 1 second
     setInterval(createBalloon, 1000);
-
-    // Play audio
     document.getElementById("playBtn").addEventListener("click", () => {
       document.getElementById("voiceNote").play();
     });
