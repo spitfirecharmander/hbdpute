@@ -30,22 +30,38 @@
       margin-top: 5px;
     }
 
-    /* Apply VT323 to specific texts */
+    /* Apply VT323 font */
     .retro-text {
       font-family: 'VT323', monospace;
-      font-size: 28px; /* Adjust size for better visibility */
+      font-size: 28px;
     }
 
     nav a {
       margin: 0 15px;
-      font-size: 22px; /* Slightly bigger for VT323 */
+      font-size: 22px;
       text-decoration: none;
       color: #333;
-      font-family: 'VT323', monospace; /* Force VT323 in nav links */
+      font-family: 'VT323', monospace;
     }
 
     nav a:hover {
       text-decoration: underline;
+    }
+
+    /* Style the button with VT323 */
+    #playBtn {
+      font-family: 'VT323', monospace;
+      font-size: 20px;
+      padding: 10px 20px;
+      border: 2px solid #333;
+      background: #f9f9f9;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+
+    #playBtn:hover {
+      background: #e0e0e0;
     }
   </style>
 </head>
@@ -55,8 +71,9 @@
   </header>
 
   <div class="container">
+    <!-- Button now uses VT323 -->
     <button id="playBtn">▶️ Let's Sing Along</button>
-    <!-- retro-text applied -->
+
     <h1 class="retro-text">🎉 Hope you are surrounded by love and happiness! 🎉</h1>
     
     <audio id="voiceNote">
@@ -65,7 +82,6 @@
     </audio>
 
     <nav>
-      <!-- retro-text font automatically applied -->
       <a href="index.html"> 🏠 Home </a>
       <a href="profile.html"> 💌 A Love Letter for Pute </a>
       <a href="wishes.html"> 📬 Send Wishes </a>
