@@ -11,7 +11,10 @@
 
   <style>
     body {
+      margin: 0;
+      padding: 0;
       font-family: Arial, sans-serif;
+      background: #ffc7d4; /* same pink background as index */
     }
 
     .header-banner {
@@ -27,15 +30,17 @@
 
     .container {
       text-align: center;
-      margin-top: 5px;
+      margin-top: 10px;
       padding: 0 20px;
     }
 
-    /* Standard VT323 style for h1, button, and nav */
+    /* Standard VT323 style for heading */
     h1 {
       font-family: 'VT323', monospace;
       font-size: 28px;
-      color: #333;
+      font-weight: bold;
+      color: #097437; /* match index heading color */
+      margin: 20px 0;
     }
 
     #playBtn {
@@ -48,12 +53,16 @@
       cursor: pointer;
       border-radius: 8px;
       transition: background 0.2s ease;
-      margin-bottom: 15px;
+      margin: 15px 0;
     }
 
     #playBtn:hover {
       background: #e0e0e0;
       color: #333;
+    }
+
+    nav {
+      margin-top: 15px;
     }
 
     nav a {
@@ -73,99 +82,4 @@
       max-width: 800px;
       margin: 40px auto;
       background: #fffafc;
-      padding: 40px;
-      border-radius: 15px;
-      text-align: justify;
-      line-height: 1.9;
-      font-size: 18px;
-      color: #444;
-      font-family: 'Georgia', serif;
-
-      border: 3px solid #ffb6c1;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-      position: relative;
-    }
-
-    .textbox::before {
-      content: "💌 Love Letter for Pute";
-      position: absolute;
-      top: -18px;
-      left: 20px;
-      background: #ffb6c1;
-      color: #fff;
-      font-size: 14px;
-      font-weight: bold;
-      padding: 4px 10px;
-      border-radius: 6px;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-    }
-
-    .back-link {
-      display: inline-block;
-      margin: 30px 0;
-      text-decoration: none;
-      font-weight: bold;
-      color: #ff69b4;
-      background: #fff;
-      border: 2px solid #ff69b4;
-      padding: 10px 18px;
-      border-radius: 8px;
-      transition: 0.3s;
-    }
-
-    .back-link:hover {
-      background: #ff69b4;
-      color: #fff;
-    }
-  </style>
-</head>
-<body> 
-  <!-- Standard header section (copied from index.html style) -->
-  <header class="header-banner"> 
-    <img src="img/headerhbdpute.png" alt="Happy Birthday Pute" class="header-image"> 
-  </header>
-
-  <div class="container"> 
-    <button id="playBtn">▶️ Let's Sing Along</button> 
-    <h1>🎉 Hope you are surrounded by love and happiness! 🎉</h1> 
-
-    <audio id="voiceNote"> 
-      <source src="audio/hbdpute.mp4" type="audio/mpeg"> 
-      Your browser does not support the audio element. 
-    </audio> 
-
-    <nav> 
-      <a href="index.html"> 🏠 Home </a> 
-      <a href="profile.html"> 💌 A Love Letter for Pute</a> 
-      <a href="wishes.html"> 📬 Send Wishes</a> 
-      <a href="game.html"> 🎮 Play Game</a> 
-    </nav> 
-  </div>
-
-  <!-- Love letter content -->
-  <div class="textbox">
-    <img src="img/putegreen.png" alt="Hello, This is Pute" class="header-image"> 
-<p> This is Pute. She is my best friend, and also a dear friend to many of us. We met during our time as Entrepreneurship students at Institut Teknologi Bandung. Together, we started a stationery business named Creative Monkeys as part of a mandatory activity in our major. People say you truly know somebody's character when you travel together, or do business with them. I think I had good experience relating with her. The business was started in the second year and we spent a lot of time together during those years. We eventually grew closer, forming a strong friendship along with Elsa and Zahra. Back then, we loved riding bikes together using BukaBike, a free bike service provided on campus sponsored by BukaLapak. </p> <p> One memory that I still remember is when we were standing in Eititu, a restaurant in CC Timur, and saw Nicholas Saputra ride past on his bike, the BukaBike we often ride. We were too stunned to speak because he is so charming, and ended up saying nothing at all although we really wanted to say hi. Maybe that’s the downside of both of us being introverts. Although having a fellow introverted friend like her has taught me many positive things in life in other events. </p> <p> Pute has always loved art. During our time togehter as a business student, she often said she wished she could study at FSRD ITB. Now, I am so proud of her for finally making that dream come true. Today she is an art student at Pratt Institute in New York. She will graduate with an MFA degree, short for <s>Mother F**** Awesome</s> Master of Fine Arts. </p> <p> We used to visit art stores together and also went to art pop up market. Thanks to her, I discovered many amazing Indonesian artists. One of her favourites is alvinxki. </p> <p> Pute loves Totoro from Studio Ghibli. She loves cats. She cares deeply about women’s empowerment, women’s rights, and Free Palestine. She has this gentle heart, very empathetic, and always cares for people. I’m glad that in New York, she is also surrounded by female friends who remind her of the ones she has in Indonesia. I truly believe that when you are kind, you attract kind people. </p> <p> For the past eight years, she has been a friend who stays through the good times and the curveballs life throws. It’s a luxury to have a friend like her, who genuinely listens and supports you through the tough times, and celebrates with you in your achievements without envy. Not only does she accept me as I am, but she also pushes me to grow into a better person. I wish I could say to my younger self that someday this isolated kid will have a friend as great as her. She’s the reason I still believe in humanity, and her presence in my life makes it all worth living. </p> <p> Congratulations on revolving around the sun 27 times, Pute! </p> <p> Whether we were just one meter apart in classes at Ganesha and Jatinangor, a hundred and fifty kilometers apart when I worked in Jakarta while you stayed in Bandung, or sixteen thousand kilometres apart between Jakarta and New York City, your love and presence have always been felt. </p> <p> Thank you for being the light that guides me through the tunnel.<br> Thank you for being the star that softens the night.<br> Thank you for being the kind and beautiful soul that you are. </p> <p style="margin-top: 30px; font-weight: bold; text-align: right;"> Salma Sulthanah<br> Jakarta, 18 September 2025 </p>
-  </div>
-
-  <a href="index.html" class="back-link">⬅ Back Home</a>
-
-  <script>
-    const playBtn = document.getElementById("playBtn");
-    const voiceNote = document.getElementById("voiceNote");
-
-    playBtn.addEventListener("click", () => {
-      voiceNote.play();
-    });
-  </script>
-  <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
-  <script>
-    window.addEventListener("load", () => {
-      new cursoreffects.fairyDustCursor({
-        colors: ["#ff69b4", "#ffd700", "#87cefa"],
-        fairySymbol: "✦"
-      });
-    });
-  </script>
-</body>
-</html>
+      padd
