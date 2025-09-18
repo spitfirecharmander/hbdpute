@@ -6,8 +6,8 @@
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="img/totorobg.png">
 
-  <!-- Import Press Start 2P font -->
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <!-- Import VT323 font -->
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 
   <style>
     body {
@@ -30,16 +30,18 @@
       margin-top: 5px;
     }
 
-    /* Apply Press Start 2P to specific texts */
+    /* Apply VT323 to specific texts */
     .retro-text {
-      font-family: 'Press Start 2P', cursive;
+      font-family: 'VT323', monospace;
+      font-size: 28px; /* Adjust size for better visibility */
     }
 
     nav a {
       margin: 0 15px;
-      font-size: 18px;
+      font-size: 22px; /* Slightly bigger for VT323 */
       text-decoration: none;
       color: #333;
+      font-family: 'VT323', monospace; /* Force VT323 in nav links */
     }
 
     nav a:hover {
@@ -54,7 +56,7 @@
 
   <div class="container">
     <button id="playBtn">▶️ Let's Sing Along</button>
-    <!-- Added retro-text class -->
+    <!-- retro-text applied -->
     <h1 class="retro-text">🎉 Hope you are surrounded by love and happiness! 🎉</h1>
     
     <audio id="voiceNote">
@@ -63,11 +65,11 @@
     </audio>
 
     <nav>
-      <!-- Added retro-text class -->
-      <a href="index.html" class="retro-text"> 🏠 Home </a>
-      <a href="profile.html" class="retro-text"> 💌 A Love Letter for Pute </a>
-      <a href="wishes.html" class="retro-text"> 📬 Send Wishes </a>
-      <a href="game.html" class="retro-text"> 🎮 Play Game </a>
+      <!-- retro-text font automatically applied -->
+      <a href="index.html"> 🏠 Home </a>
+      <a href="profile.html"> 💌 A Love Letter for Pute </a>
+      <a href="wishes.html"> 📬 Send Wishes </a>
+      <a href="game.html"> 🎮 Play Game </a>
     </nav>
   </div>
 
