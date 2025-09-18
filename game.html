@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🎂 Birthday Balloon Poop 🎂</title>
+  <title>🎂 Birthday Balloon Pop 🎂</title>
   <link rel="icon" type="image/png" href="img/totorobg.png">
   <style>
     body {
@@ -26,7 +26,6 @@
     .header-banner img {
       width: 350px;
       height: auto;
-      
     }
 
     nav a {
@@ -38,21 +37,6 @@
 
     nav a:hover {
       text-decoration: underline;
-    }
-
-    #playBtn {
-      margin-top: 10px;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 8px;
-      border: none;
-      background: #ff69b4;
-      color: white;
-      cursor: pointer;
-    }
-
-    #playBtn:hover {
-      background: #ff1493;
     }
 
     #gameArea {
@@ -115,6 +99,10 @@
     <div id="message">🎂 Happy 27th Birthday, Pute! 🎁</div>
   </div>
 
+  <!-- 🔹 Sound effects -->
+  <audio id="popSound" src="audio/pop.mp3" preload="auto"></audio>
+  <audio id="cheerSound" src="audio/hbd.mp3" preload="auto"></audio>
+
   <script>
     let score = 0;
 
@@ -122,29 +110,39 @@
       const balloon = document.createElement("div");
       balloon.classList.add("balloon");
 
-
+      // Random horizontal position
       balloon.style.left = Math.random() * (window.innerWidth - 80) + "px";
 
-
+      // Random emoji inside balloon
       const emojis = ["🎂", "🎁", "🎉", "🎊", "💖"];
       balloon.textContent = emojis[Math.floor(Math.random() * emojis.length)];
 
-
+      // Random background color
       balloon.style.backgroundColor = randomColor();
 
- 
+      // Remove balloon after animation
       balloon.addEventListener("animationend", () => {
         balloon.remove();
       });
 
-
+      // When balloon is clicked
       balloon.addEventListener("click", () => {
         score++;
         document.getElementById("score").innerText = "Score: " + score;
+
+        // 🔹 Play pop sound
+        const popSound = document.getElementById("popSound");
+        popSound.currentTime = 0; 
+        popSound.play();
+
         balloon.remove();
 
+        // If score reaches 27 → show message + play celebration
         if (score === 27) {
           document.getElementById("message").style.display = "block";
+          const cheerSound = document.getElementById("cheerSound");
+          cheerSound.currentTime = 0;
+          cheerSound.play();
         }
       });
 
@@ -156,12 +154,11 @@
       return colors[Math.floor(Math.random() * colors.length)];
     }
 
+    // Create balloons continuously
     setInterval(createBalloon, 1000);
-    document.getElementById("playBtn").addEventListener("click", () => {
-      document.getElementById("voiceNote").play();
-    });
   </script>
-   <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
+
+  <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
   <script>
     window.addEventListener("load", () => {
       new cursoreffects.fairyDustCursor({
