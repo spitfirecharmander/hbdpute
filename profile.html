@@ -82,4 +82,100 @@
       max-width: 800px;
       margin: 40px auto;
       background: #fffafc;
-      padd
+      padding: 40px;
+      border-radius: 15px;
+      text-align: justify;
+      line-height: 1.9;
+      font-size: 18px;
+      color: #444;
+      font-family: 'Georgia', serif;
+
+      border: 3px solid #ffb6c1;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      position: relative;
+    }
+
+    .textbox::before {
+      content: "💌 Love Letter for Pute";
+      position: absolute;
+      top: -18px;
+      left: 20px;
+      background: #ffb6c1;
+      color: #fff;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 4px 10px;
+      border-radius: 6px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    }
+
+    .back-link {
+      display: inline-block;
+      margin: 30px 0;
+      text-decoration: none;
+      font-weight: bold;
+      color: #ff69b4;
+      background: #fff;
+      border: 2px solid #ff69b4;
+      padding: 10px 18px;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .back-link:hover {
+      background: #ff69b4;
+      color: #fff;
+    }
+  </style>
+</head>
+<body> 
+  <!-- Standard header section -->
+  <header class="header-banner"> 
+    <img src="img/headerhbdpute.png" alt="Happy Birthday Pute" class="header-image"> 
+  </header>
+
+  <div class="container"> 
+    <button id="playBtn">▶️ Let's Sing Along</button> 
+    <h1>🎉 Hope you are surrounded by love and happiness! 🎉</h1> 
+
+    <audio id="voiceNote"> 
+      <source src="audio/hbdpute.mp4" type="audio/mpeg"> 
+      Your browser does not support the audio element. 
+    </audio> 
+
+    <nav> 
+      <a href="index.html"> 🏠 Home </a> 
+      <a href="profile.html"> 💌 A Love Letter for Pute</a> 
+      <a href="wishes.html"> 📬 Send Wishes</a> 
+      <a href="game.html"> 🎮 Play Game</a> 
+    </nav> 
+  </div>
+
+  <!-- Love letter content -->
+  <div class="textbox">
+    <img src="img/putegreen.png" alt="Hello, This is Pute" class="header-image"> 
+    <p> This is Pute. She is my best friend, and also a dear friend to many of us... </p>
+    <!-- keep all your paragraphs as before -->
+  </div>
+
+  <a href="index.html" class="back-link">⬅ Back Home</a>
+
+  <script>
+    const playBtn = document.getElementById("playBtn");
+    const voiceNote = document.getElementById("voiceNote");
+
+    playBtn.addEventListener("click", () => {
+      voiceNote.play();
+    });
+  </script>
+  <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
+  <script>
+    window.addEventListener("load", () => {
+      new cursoreffects.fairyDustCursor({
+        colors: ["#ff69b4", "#ffd700", "#87cefa"],
+        fairySymbol: "✦"
+      });
+    });
+  </script>
+</body>
+</html>
