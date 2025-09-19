@@ -242,7 +242,6 @@
     const wishList = document.getElementById("wishList");
     const loading = document.getElementById("loading");
 
-    // Load all wishes quickly
     onValue(wishesRef, (snapshot) => {
       wishList.innerHTML = "";
       const wishes = snapshot.val();
@@ -254,13 +253,11 @@
       loading.style.display = "none";
     });
 
-    // Keep listening for new wishes in real time
     onChildAdded(wishesRef, (snapshot) => {
       const wish = snapshot.val();
       displayWish(wish);
     });
 
-    // Handle wish form submit
     wishForm.addEventListener("submit", (event) => {
       event.preventDefault();
 
